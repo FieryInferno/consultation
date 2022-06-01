@@ -39,3 +39,14 @@ Route::get('/konsultasi', function () {
 });
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'auth']);
+
+Route::middleware('auth')->group(function () {
+  Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+      return view('admin/dashboard', [
+        'active'  => 'dashboard',
+        'title'   => 'Dashboard',
+      ]);
+    });
+  });
+});
