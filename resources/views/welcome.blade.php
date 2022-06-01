@@ -15,7 +15,7 @@
                   </div>
                   <div class="col-lg-12">
                     <div class="border-first-button scroll-to-section">
-                      <a href="#contact">Mulai Konsultasi</a>
+                      <a href="{{ url('konsultasi') }}">Mulai Konsultasi</a>
                     </div>
                   </div>
                 </div>

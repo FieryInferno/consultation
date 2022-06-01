@@ -37,3 +37,5 @@ Route::get('/konsultasi', function () {
     'title'   => 'Konsultasi',
   ]);
 });
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'auth']);

@@ -80,10 +80,10 @@ https://templatemo.com/tm-568-digimedia
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="/" class="{{ $active == 'home' ? 'active' : '' }}">Home</a></li>
-              <li class="scroll-to-section"><a href="/about" class="{{ $active == 'about' ? 'active' : '' }}">About</a></li>
-              <li class="scroll-to-section"><a href="/berita" class="{{ $active == 'berita' ? 'active' : '' }}">Berita</a></li> 
-              <li class="scroll-to-section"><div class="border-first-button"><a href="/konsultasi">Mulai Konsultasi</a></div></li> 
+              <li class="scroll-to-section"><a href="{{ url('') }}" class="{{ $active == 'home' ? 'active' : '' }}">Home</a></li>
+              <li class="scroll-to-section"><a href="{{ url('about') }}" class="{{ $active == 'about' ? 'active' : '' }}">About</a></li>
+              <li class="scroll-to-section"><a href="{{ url('berita') }}" class="{{ $active == 'berita' ? 'active' : '' }}">Berita</a></li> 
+              <li class="scroll-to-section"><div class="border-first-button"><a href="{{ url('konsultasi') }}">Mulai Konsultasi</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
