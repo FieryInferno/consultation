@@ -9,8 +9,10 @@ class Jadwal extends Model
 {
   use HasFactory;
 
+  protected $fillable = ['pengacara_id', 'hari', 'jam'];
+
   public function pengacara()
   {
-    return $this->hasOne(Pengacara::class);
+    return $this->hasOne(Pengacara::class, 'id', 'pengacara_id');
   }
 }

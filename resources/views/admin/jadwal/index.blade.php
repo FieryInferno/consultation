@@ -33,7 +33,7 @@
                   <td>{{ $i++ }}</td>
                   <td>{{ $key->pengacara->nama }}</td>
                   <td>{{ $key->hari }}</td>
-                  <th>Jam</th>
+                  <td>{{ $key->jam }}</td>
                   <td>
                     <form action="{{ url('/admin/jadwal/' . $key->id) }}" method="post">
                       <a class="btn btn-primary" href="{{ url('admin/jadwal/' . $key->id . '/edit') }}">

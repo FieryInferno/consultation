@@ -7,20 +7,39 @@
           <h3 class="card-title">{{ $mode === 'edit' ? 'Edit' : 'Tambah'}} Pengacara</h3>
         </div>
         <!-- /.card-header -->
-        <form action="/admin/pengacara/{{ $mode === 'edit' ? $id : '' }}" method="post">
+        <form action="/admin/jadwal/{{ $mode === 'edit' ? $id : '' }}" method="post">
           @csrf
           {{ $mode === 'edit' ? method_field('PUT') : '' }}
           <div class="card-body">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Nama Pengacara</label>
-                <input type="text" class="form-control" placeholder="Nama Pengacara" name="nama" value="{{ $mode === 'edit' ? $nama : '' }}">
+                <select name="pengacara_id" class="form-control select2">
+                  <option></option>
+                  @foreach ($pengacara as $key)
+                    <option value="{{ $key->id }}" {{ $mode === 'edit' ? $key->id === $pengacara_id ? 'selected' : '' : '' }}>{{ $key->nama }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="exampleInputEmail1">No. Telepon</label>
-                <input type="text" class="form-control" placeholder="No. Telepon" name="no_telp" value="{{ $mode === 'edit' ? $no_telp : '' }}">
+                <label for="exampleInputEmail1">Hari</label>
+                <select name="hari" class="form-control select2">
+                  <option></option>
+                  <option value="senin" {{ $mode === 'edit' ? $hari === 'senin' ? 'selected' : '' : '' }}>Senin</option>
+                  <option value="selasa" {{ $mode === 'edit' ? $hari === 'selasa' ? 'selected' : '' : '' }}>Selasa</option>
+                  <option value="rabu" {{ $mode === 'edit' ? $hari === 'rabu' ? 'selected' : '' : '' }}>Rabu</option>
+                  <option value="kamis" {{ $mode === 'edit' ? $hari === 'kamis' ? 'selected' : '' : '' }}>Kamis</option>
+                  <option value="jumat" {{ $mode === 'edit' ? $hari === 'jumat' ? 'selected' : '' : '' }}>Jumat</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Waktu</label>
+                <input type="text" id="timepicker" class="form-control" name="jam" value="{{ $mode === 'edit' ? $jam : '' }}">
+                <!-- /.input group -->
               </div>
             </div>
           </div>

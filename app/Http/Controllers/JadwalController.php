@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
+use App\Models\Pengacara;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -16,64 +17,56 @@ class JadwalController extends Controller
     ]);
   }
   
-    public function create()
-    {
-        //
-    }
+  public function create()
+  {
+    return view('admin.jadwal.form', [
+      'active'    => 'jadwal',
+      'title'     => 'Dashboard',
+      'mode'      => 'add',
+      'pengacara' => Pengacara::all(),
+    ]);
+  }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+  public function store(Request $request)
+  {
+    $request->validate([
+      'pengacara_id'  => 'required',
+      'hari'          => 'required',
+      'jam'           => 'required',
+    ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Jadwal $jadwal)
-    {
-        //
-    }
+    Jadwal::create($request->all());
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Jadwal $jadwal)
-    {
-        //
-    }
+    return redirect('admin/jadwal')->with('success','Berhasil tambah jadwal.');
+  }
+  
+  public function edit(Jadwal $jadwal)
+  {
+    $jadwal['active']     = 'jadwal';
+    $jadwal['title']      = 'Dashboard';
+    $jadwal['mode']       = 'edit';
+    $jadwal['pengacara']  = Pengacara::all();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Jadwal $jadwal)
-    {
-        //
-    }
+    return view('admin.jadwal.form', $jadwal);
+  }
+  
+  public function update(Request $request, Jadwal $jadwal)
+  {
+    $request->validate([
+      'pengacara_id'  => 'required',
+      'hari'          => 'required',
+      'jam'           => 'required',
+    ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Jadwal  $jadwal
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Jadwal $jadwal)
-    {
-        //
-    }
+    $jadwal->update($request->all());
+
+    return redirect('admin/jadwal')->with('success','Berhasil edit jadwal.');
+  }
+  
+  public function destroy(Jadwal $jadwal)
+  {
+    $jadwal->delete();
+    
+    return redirect('admin/jadwal')->with('success','Berhasil hapus jadwal.');
+  }
 }

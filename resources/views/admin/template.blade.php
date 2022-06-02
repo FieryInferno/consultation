@@ -16,6 +16,12 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('css') }}/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="{{ asset('css') }}/responsive.bootstrap4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{ asset('css') }}/select2.min.css">
+  <link rel="stylesheet" href="{{ asset('css') }}/select2-bootstrap4.min.css">
+  <!-- daterange picker -->
+  <!-- <link rel="stylesheet" href="{{ asset('css') }}/daterangepicker.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -157,9 +163,38 @@
 <script src="{{ asset('js') }}/dataTables.bootstrap4.min.js"></script>
 <script src="{{ asset('js') }}/dataTables.responsive.min.js"></script>
 <script src="{{ asset('js') }}/responsive.bootstrap4.min.js"></script>
+<!-- Select2 -->
+<script src="{{ asset('js') }}/select2.full.min.js"></script>
+<!-- date-range-picker -->
+<!-- <script src="{{ asset('js') }}/daterangepicker.js"></script>
+<script src="{{ asset('js') }}/moment.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script>
   $(function () {
     $('#example1').DataTable();
+
+    //Initialize Select2 Elements
+    $('.select2').select2({
+      theme: 'bootstrap4',
+      placeholder: "Masukan pilihan",
+      allowClear: true,
+    })
+
+    //Timepicker
+    // $('#timepicker').datetimepicker({
+    //   format: 'LT'
+    // })$('#duration').daterangepicker({
+    $('#timepicker').daterangepicker({
+          timePicker: true,
+          timePicker24Hour: true,
+          timePickerIncrement: 1,
+          locale: {
+            format: 'HH:mm:ss'
+          }
+      }).on('show.daterangepicker', function (ev, picker) {
+        picker.container.find(".calendar-table").hide();
+      });
   });
 </script>
 </body>
