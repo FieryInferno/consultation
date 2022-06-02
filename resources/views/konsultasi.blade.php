@@ -41,9 +41,11 @@
                           <fieldset>
                             <label for="">Pilih Pengacara</label>
                             <select name="" class="form-control" id="">
-                              <option disabled selected>Select your option</option>
-                              <option value="">Pengacara 1</option>
-                              <option value="">Pengacara 2</option></select>
+                              <option disabled selected>Pilih Pengacara</option>
+                              @foreach ($pengacara as $key)
+                                <option value="{{ $key->id }}">{{ $key->pengacara->nama }}</option>
+                              @endforeach
+                            </select>
                           </fieldset>
                         </div>
                       </div>

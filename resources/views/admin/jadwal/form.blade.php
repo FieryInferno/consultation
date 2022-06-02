@@ -27,11 +27,11 @@
                 <label for="exampleInputEmail1">Hari</label>
                 <select name="hari" class="form-control select2">
                   <option></option>
-                  <option value="senin" {{ $mode === 'edit' ? $hari === 'senin' ? 'selected' : '' : '' }}>Senin</option>
-                  <option value="selasa" {{ $mode === 'edit' ? $hari === 'selasa' ? 'selected' : '' : '' }}>Selasa</option>
-                  <option value="rabu" {{ $mode === 'edit' ? $hari === 'rabu' ? 'selected' : '' : '' }}>Rabu</option>
-                  <option value="kamis" {{ $mode === 'edit' ? $hari === 'kamis' ? 'selected' : '' : '' }}>Kamis</option>
-                  <option value="jumat" {{ $mode === 'edit' ? $hari === 'jumat' ? 'selected' : '' : '' }}>Jumat</option>
+                  <option value="Monday" {{ $mode === 'edit' ? $hari === 'Monday' ? 'selected' : '' : '' }}>Senin</option>
+                  <option value="Tuesday" {{ $mode === 'edit' ? $hari === 'Tuesday' ? 'selected' : '' : '' }}>Selasa</option>
+                  <option value="Wednesday" {{ $mode === 'edit' ? $hari === 'Wednesday' ? 'selected' : '' : '' }}>Rabu</option>
+                  <option value="Thursday" {{ $mode === 'edit' ? $hari === 'Thursday' ? 'selected' : '' : '' }}>Kamis</option>
+                  <option value="Friday" {{ $mode === 'edit' ? $hari === 'Friday' ? 'selected' : '' : '' }}>Jumat</option>
                 </select>
               </div>
             </div>

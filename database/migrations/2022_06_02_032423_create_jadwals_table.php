@@ -11,7 +11,7 @@ return new class extends Migration
     Schema::create('jadwals', function (Blueprint $table) {
       $table->id();
       $table->foreignId('pengacara_id')->constrained('pengacaras')->onUpdate('cascade')->onDelete('cascade');
-      $table->enum('hari', ['senin', 'selasa', 'rabu', 'kamis', 'jumat']);
+      $table->enum('hari', ['Moday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
       $table->string('jam');
       $table->timestamps();
     });

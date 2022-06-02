@@ -31,12 +31,7 @@ Route::get('/berita', function () {
     'title'   => 'Berita',
   ]);
 });
-Route::get('/konsultasi', function () {
-  return view('konsultasi', [
-    'active'  => 'konsultasi',
-    'title'   => 'Konsultasi',
-  ]);
-});
+Route::get('/konsultasi', [App\Http\Controllers\KonsultasiController::class, 'index']);
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'auth']);
 
