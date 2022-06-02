@@ -50,5 +50,6 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::resource('pengacara', App\Http\Controllers\PengacaraController::class);
+    Route::resource('jadwal', App\Http\Controllers\JadwalController::class);
   });
 });

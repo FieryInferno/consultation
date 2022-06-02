@@ -88,6 +88,12 @@
                 <p>Kelola Pengacara</p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="{{ url('admin/jadwal') }}" class="nav-link {{ $active === 'jadwal' ? 'active' : '' }}">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>Kelola Jadwal</p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
