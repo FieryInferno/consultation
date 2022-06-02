@@ -48,5 +48,7 @@ Route::middleware('auth')->group(function () {
         'title'   => 'Dashboard',
       ]);
     });
+    
+    Route::resource('pengacara', App\Http\Controllers\PengacaraController::class);
   });
 });
