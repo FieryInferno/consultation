@@ -6,26 +6,22 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('konsultasis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('konsultasis');
-    }
+  public function up()
+  {
+    Schema::create('konsultasis', function (Blueprint $table) {
+      $table->id();
+      $table->enum('jenis_konsultasi', ['pribadi', 'desa']);
+      $table->foreignId('pengacara_id')->constrained('pengacaras')->onUpdate('cascade')->onDelete('cascade');
+      $table->string('nama');
+      $table->string('email');
+      $table->string('no_telp');
+      $table->string('detail_masalah');
+      $table->timestamps();
+    });
+  }
+  
+  public function down()
+  {
+    Schema::dropIfExists('konsultasis');
+  }
 };

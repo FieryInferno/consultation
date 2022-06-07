@@ -31,7 +31,8 @@ Route::get('/berita', function () {
     'title'   => 'Berita',
   ]);
 });
-Route::get('/konsultasi', [App\Http\Controllers\KonsultasiController::class, 'index']);
+Route::get('/konsultasi', [App\Http\Controllers\KonsultasiController::class, 'create']);
+Route::post('/konsultasi', [App\Http\Controllers\KonsultasiController::class, 'store']);
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'auth']);
 
